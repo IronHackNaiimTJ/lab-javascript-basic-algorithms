@@ -1,19 +1,23 @@
-// - Iteration 1: Names and Input
-const hacker1 = prompt("The driver's name is ");
-const hacker2 = prompt("The navigator's name is ");
-console.log("Driver:", hacker1);
-console.log("Navigator:", hacker2);
+console.log("I'm ready!");
+// Iteration 1: Names and Input
 
-// - Iteration 2: Conditionals
+let hacker1 = prompt("Driver name"), hacker2 = prompt("Navigator name");
+
+console.log(`The driver's name is ${hacker1}`);
+console.log(`The navigator's name is ${hacker2}`);
+
+// Iteration 2: Conditionals
+
 if (hacker1.length > hacker2.length) {
-  console.log(`The driver has the longest name, it has ${hacker1.length} characters.`);
-} else if (hacker1.length < hacker2.length) {
-  console.log(`It seems that the navigator has the longest name, it has ${hacker2.length} characters.`);
-} else if (hacker1.length == hacker2.length) {
-  console.log(`Wow, you both have equally long names, ${hacker1.length} characters!.`);
-}
+    console.log(`The driver has the longest name, it has ${hacker1.length} characters`);
+  } else if (hacker1.length < hacker2.length) {
+    console.log(`It seems that the navigator has the longest name, it has ${hacker2.length} characters.`);
+  } else if (hacker1.length === hacker2.length) {
+    console.log(`Wow, you both have equally long names, ${hacker1.length} characters!`);
+  }
 
-// - Iteration 3: Loops
+// Iteration 3: Loops
+
 let hacker1WithSpaces = "";
 for (let i = 0; i < hacker1.length; i++) {
   hacker1WithSpaces += hacker1[i].toUpperCase();
@@ -30,65 +34,49 @@ for (let i = hacker2.length - 1; i >= 0; i--) {
 }
 console.log(reversedHacker2);
 
-const minLength = Math.min(hacker1.length, hacker2.length);
-let comparison = 0;
-for (let i = 0; i < minLength; i += 1) {
-  if (hacker1[i] < hacker2[i]) {
-    comparison = -1;
-    break;
-  } else if (hacker1[i] > hacker2[i]) {
-    comparison = 1;
-    break;
-  }
-}
-if (comparison < 0) {
+if (hacker1 < hacker2) {
   console.log("The driver's name goes first.");
-} else if (comparison > 0) {
+} else if (hacker1 > hacker2) {
   console.log("Yo, the navigator goes first, definitely.");
 } else {
   console.log("What?! You both have the same name?");
 }
 
-// BONUS 1
-const paragraph1 =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque congue egestas. Fusce tristique lacus sit amet est tincidunt, vitae dignissim risus hendrerit. Duis tincidunt interdum mi, eu sagittis diam sodales et.";
-const paragraph2 =
-  "Sed rhoncus egestas mi non posuere. Duis viverra nisl a pretium dignissim. Nullam et dui sollicitudin, suscipit lectus consequat, egestas est. Cras dignissim, odio ut aliquet aliquam, purus nibh maximus arcu, in semper turpis dolor at turpis. Vestibulum eget massa scelerisque, porta orci quis, ornare ante. Etiam tristique nisi quis vestibulum maximus. Maecenas lobortis iaculis nisl, quis rhoncus libero vestibulum vitae.";
-const paragraph3 =
-  "Aliquam eu mi quam. Sed fringilla nulla sit amet ligula consectetur pellentesque. Nunc lacinia a sem ac iaculis. Ut sollicitudin nisl turpis, quis faucibus ipsum varius ut. Donec ac efficitur nulla. In eget purus scelerisque, posuere diam a, lacinia dolor. Proin nec mi venenatis, rutrum dolor non, egestas odio. Donec pulvinar non purus vitae fringilla. Etiam id imperdiet ex. Morbi convallis nisl ut turpis aliquet, et tempor nibh sodales. Aliquam a varius diam, pharetra elementum nunc. Maecenas luctus tincidunt viverra. Nunc sollicitudin finibus enim non tristique. Cras ornare elit ut quam sollicitudin interdum.";
-const longText = paragraph1 + paragraph2 + paragraph3;
+// Bonus 1:
 
-console.log("Number words = ", paragraph3.split(" ").length);
+const longText = "Morbi commodo, nunc sit amet finibus vestibulum, leo est egestas nulla, et congue dolor mauris et metus. Integer dignissim massa sed ex laoreet commodo. Proin vitae ullamcorper mi. In hac habitasse platea dictumst. Donec tincidunt justo in lacus sollicitudin, non laoreet justo maximus. Ut venenatis eleifend bibendum. Sed cursus tempor elit, ac sollicitudin ex congue sit amet. Maecenas arcu eros, porta tincidunt diam ac, sollicitudin mollis mauris. Duis dui diam, aliquet nec metus in, pretium euismod arcu.In scelerisque neque ut lorem cursus sollicitudin. In feugiat condimentum eros, nec consectetur erat egestas at. Sed at tortor et orci feugiat posuere eget in tortor. Vestibulum congue libero et odio rutrum, et pharetra orci porta. Ut nec dolor nec arcu aliquam ullamcorper non nec massa. Donec nec vulputate est. Nulla in diam vestibulum, tempor lorem eu, iaculis purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras eu elementum purus. Duis vehicula auctor urna a accumsan. Phasellus eget est sollicitudin orci posuere rhoncus quis eu augue. In purus orci, lobortis eu lorem tincidunt, efficitur aliquet risus.Suspendisse dapibus, leo in congue rhoncus, libero libero porttitor lectus, non vestibulum lorem nibh vitae libero. Cras enim ex, finibus ut laoreet a, bibendum id turpis. Ut imperdiet lacus non ex pulvinar commodo. Duis vulputate, tellus quis imperdiet pulvinar, ligula dui venenatis leo, semper scelerisque nunc lectus at lectus. Donec ut dui in purus eleifend pulvinar sit amet eget nunc. Vestibulum sit amet euismod leo, vel tempor felis. Suspendisse potenti. Pellentesque laoreet, leo tempor varius suscipit, tellus nisl ultricies quam, nec faucibus nisi est quis ipsum. Mauris aliquet ex eget vulputate fermentum."
 
-let count = 0;
-for (let i = 0; i < longText.length; i += 1) {
-  const char = longText[i] + longText[i + 1];
-  if (char === "et") {
-    count++;
+let numWords = 0, numEt = 0;
+
+for (let i = 0; i < longText.length; i++) {
+  if (longText[i] === " ") {
+    numWords++;
+  }
+  if (longText[i] + longText[i + 1] === "et") {
+    numEt++
   }
 }
-console.log('Number times "et" = ', count);
 
-// BONUS 2
-const phraseToCheck = prompt("Write your phrase");
-console.log("Phrase to check:", phraseToCheck);
+console.log(`The text has ${numWords} words, and the latin word "et" appears ${numEt} times`)
 
-let cleanPhrase = "";
-for (let i = 0; i < phraseToCheck.length; i += 1) {
+// Bonus 2:
+
+const phraseToCheck = prompt("Palindrome check")
+let reversedPhrase = "", cleanPhrase = "";
+
+for (let i = 0; i < phraseToCheck.length; i++) {
   const char = phraseToCheck[i].toLowerCase();
   if (char >= "a" && char <= "z") {
     cleanPhrase += char;
   }
 }
-let isPalindrome = true;
-for (let i = 0; i < cleanPhrase.length / 2; i += 1) {
-  if (cleanPhrase[i] !== cleanPhrase[cleanPhrase.length - 1 - i]) {
-    isPalindrome = false;
-    break;
-  }
+
+for (let i = cleanPhrase.length - 1; i >= 0; i--) {
+  reversedPhrase += cleanPhrase[i];
 }
-if (isPalindrome) {
-  console.log("The phrase is a palindrome");
+
+if (reversedPhrase === cleanPhrase) {
+  console.log(`"${phraseToCheck}" is a Palindrome`);
 } else {
-  console.log("The phrase is not a palindrome");
+  console.log(`"${phraseToCheck}" is not a Palindrome`);
 }
