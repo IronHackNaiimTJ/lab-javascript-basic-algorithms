@@ -48,9 +48,12 @@ const longText = "Morbi commodo, nunc sit amet finibus vestibulum, leo est egest
 
 let numEt = 0;
 const separWords = longText.split(' ')
+console.log("separWords", separWords);
 const numWords = separWords.length;
+console.log("numWords", numWords);
+
 for (let i = 0; i < separWords.length; i++) {
-  if(separWords[i + 3] === "et"){
+  if(separWords[i] === "et"){
     numEt++;
   }
 }
